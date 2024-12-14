@@ -1,4 +1,5 @@
 import React from "react";
+import { HashRouter as Router, Route, Routes, Link } from "react-router-dom";
 import "./App.css";
 import ImageSequance from "./components/imageSequance";
 import Navbar from "./components/Navbar";
@@ -12,19 +13,21 @@ import ContactMe from "./components/ContactMe";
 
 function App() {
   return (
-    <>
+    <Router>
       <ImageSequance />
       <Navbar />
       <main>
-        <HeroSection />
-        <Services />
-        <Skills />
-        <Testimonials />
-        <Highlights />
-        <Projects />
+        <Routes>
+          <Route path="/" element={<HeroSection />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/highlights" element={<Highlights />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<ContactMe />} />
+        </Routes>
       </main>
-      <ContactMe />
-    </>
+    </Router>
   );
 }
 

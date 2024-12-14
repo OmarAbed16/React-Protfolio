@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,16 +11,16 @@ function Navbar() {
   return (
     <header>
       <nav>
-        <a href="#hero" id="nav-logo">
+        <Link to="/" id="nav-logo">
           <img id="logo" src="Media/logo.png" alt="logo" />
-        </a>
+        </Link>
         <div className="nav-sections">
-          <a href="#hero">About me</a>
-          <a href="#Services">Services</a>
-          <a href="#Projects">Projects</a>
-          <a href="#Testimonials">Testimonials</a>
-          <a href="#Highlights">Highlight</a>
-          <a href="#contactMe">Contact Me</a>
+          <Link to="/">About me</Link>
+          <Link to="/services">Services</Link>
+          <Link to="/projects">Projects</Link>
+          <Link to="/testimonials">Testimonials</Link>
+          <Link to="/highlights">Highlights</Link>
+          <Link to="/contact">Contact Me</Link>
         </div>
 
         <div
@@ -28,25 +29,29 @@ function Navbar() {
           role="button"
           aria-label="Toggle menu"
         >
-          <div className="nav-sections">
-            <a href="#hero">About me</a>
-            <a href="#Services">Services</a>
-            <a href="#Projects">Projects</a>
-            <a href="#Testimonials">Testimonials</a>
-            <a href="#Highlights">Highlight</a>
-            <a href="#contactMe">Contact Me</a>
-          </div>
           <span className="hamburger">&#9776;</span>
         </div>
 
         {isOpen && (
           <div className="dropdown-menu">
-            <a href="#hero">About me</a>
-            <a href="#Services">Services</a>
-            <a href="#Projects">Projects</a>
-            <a href="#Testimonials">Testimonials</a>
-            <a href="#Highlights">Highlight</a>
-            <a href="#contactMe">Contact Me</a>
+            <Link to="/" onClick={toggleDropdown}>
+              About me
+            </Link>
+            <Link to="/services" onClick={toggleDropdown}>
+              Services
+            </Link>
+            <Link to="/projects" onClick={toggleDropdown}>
+              Projects
+            </Link>
+            <Link to="/testimonials" onClick={toggleDropdown}>
+              Testimonials
+            </Link>
+            <Link to="/highlights" onClick={toggleDropdown}>
+              Highlights
+            </Link>
+            <Link to="/contact" onClick={toggleDropdown}>
+              Contact Me
+            </Link>
           </div>
         )}
       </nav>
