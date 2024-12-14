@@ -1,6 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import useIframe from "./useIframe";
 
 const ImageSequance = () => {
+  const { createIframe } = useIframe(
+    "https://my.spline.design/colorfulsmokemousefolloweffectcopy-b5dee91fa2d45d52a6c70bb0a62198c8/"
+  );
+
   const canvasRef = useRef(null);
   const contentDivRef = useRef(null);
   const [preloadedImages, setPreloadedImages] = useState([]);
@@ -92,12 +97,15 @@ const ImageSequance = () => {
   }, [numImages, preloadedImages, allImagesPreloaded]);
 
   return (
-    <div id="canvas-bg">
-      <div className="image-container-pv1">
-        <canvas id="image-sequence-pv1" ref={canvasRef}></canvas>
-        <div id="content-pv1" ref={contentDivRef}></div>
+    <>
+      {createIframe()}
+      <div id="canvas-bg">
+        <div className="image-container-pv1">
+          <canvas id="image-sequence-pv1" ref={canvasRef}></canvas>
+          <div id="content-pv1" ref={contentDivRef}></div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

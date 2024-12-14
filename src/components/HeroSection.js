@@ -1,12 +1,7 @@
 // HeroSection.js
 import React from "react";
-import useIframe from "./useIframe";
 
 const HeroSection = () => {
-  const { createIframe } = useIframe(
-    "https://my.spline.design/colorfulsmokemousefolloweffectcopy-b5dee91fa2d45d52a6c70bb0a62198c8/"
-  );
-
   return (
     <>
       <div id="hero" className="section hero-section">
@@ -49,7 +44,6 @@ const HeroSection = () => {
             <hr className="hr2" />
           </div>
         </div>
-        {createIframe()}
       </div>
     </>
   );
